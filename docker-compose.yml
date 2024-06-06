@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+    ports:
+      - "8007:8007"
+    depends_on:
+      - mysql
+    networks:
+      - laravel
+    volumes:
+      - ./:/var/www/html
+
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345678
+      MYSQL_DATABASE: authentication
+      MYSQL_PASSWORD: 12345678
+    ports:
+      - "3307:3306"
+    networks:
+      - laravel
+
+networks:
+  laravel:
+    driver: bridge
+
