@@ -1,0 +1,127 @@
+{
+	"info": {
+		"_postman_id": "933fb5b1-fe24-4332-a0f1-f5f69d3b102b",
+		"name": "Authentication-Basic",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28439255"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"tcshabin1997@gmail.com\",\n    \"password\": \"123456\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8007/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8007",
+					"path": [
+						"api",
+						"login"
+					]
+				},
+				"description": "Login API for laravel sanctum"
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Shabin\",\n    \"email\": \"tcshabin1997@gmail.com\",\n    \"password\": \"123456\",\n    \"password_confirmation\": \"123456\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8007/api/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8007",
+					"path": [
+						"api",
+						"register"
+					]
+				},
+				"description": "Laravel register using santucm"
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/logout",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dashboard",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/dashboard",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"dashboard"
+					]
+				},
+				"description": "Dashboard laravel rest pass token"
+			},
+			"response": []
+		}
+	]
+}
